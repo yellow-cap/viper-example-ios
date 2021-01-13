@@ -11,8 +11,7 @@ class TripListRouter {
         let presenter = TripDetailsPresenter(
                 interactor: TripDetailsInteractor(
                         trip: trip,
-                        model: model,
-                        mapInfoProvider: RealMapDataProvider())
+                        model: model)
         )
 
         return TripDetailsView(presenter: presenter)

@@ -10,15 +10,13 @@ import MapKit
 class TripDetailsInteractor {
     private let trip: Trip
     private let model: DataModel
-    let mapInfoProvider: MapDataProvider
     var tripName: String { trip.name }
     var tripNamePublisher: Published<String>.Publisher { trip.$name }
 
     private var cancellables = Set<AnyCancellable>()
 
-    init (trip: Trip, model: DataModel, mapInfoProvider: MapDataProvider) {
+    init (trip: Trip, model: DataModel) {
         self.trip = trip
-        self.mapInfoProvider = mapInfoProvider
         self.model = model
     }
 

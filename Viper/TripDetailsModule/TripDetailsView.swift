@@ -25,12 +25,10 @@ struct TripDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         let model = DataModel.sample
         let trip = model.trips[1]
-        let mapProvider = RealMapDataProvider()
         let presenter = TripDetailsPresenter(
                 interactor: TripDetailsInteractor(
                         trip: trip,
-                        model: model,
-                        mapInfoProvider: mapProvider)
+                        model: model)
         )
 
         return NavigationView {
