@@ -14,6 +14,8 @@ struct TripDetailsView: View {
             TextField("Trip Name", text: presenter.setTripName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding([.horizontal])
+
+            MapView(pins: presenter.pins, routes: presenter.routes)
         }
                 .navigationBarTitle(Text(presenter.tripName), displayMode: .inline)
                 .navigationBarItems(trailing: Button("Save", action: presenter.save))
@@ -25,8 +27,10 @@ struct TripDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         let model = DataModel.sample
         let trip = model.trips[1]
+        let mapProvider = RealMapDataProvider()
         let presenter = TripDetailsPresenter(
                 interactor: TripDetailsInteractor(
+                        mapInfoProvider: mapProvider,
                         trip: trip,
                         model: model)
         )

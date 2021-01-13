@@ -10,6 +10,7 @@ class TripListRouter {
     func makeDetailView(for trip: Trip, model: DataModel) -> some View {
         let presenter = TripDetailsPresenter(
                 interactor: TripDetailsInteractor(
+                        mapInfoProvider: RealMapDataProvider(),
                         trip: trip,
                         model: model)
         )
