@@ -10,7 +10,13 @@ struct TripDetailsView: View {
     @ObservedObject var presenter: TripDetailsPresenter
 
     var body: some View {
-        return Text("V")
+        VStack {
+            TextField("Trip Name", text: presenter.setTripName)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding([.horizontal])
+        }
+                .navigationBarTitle(Text(presenter.tripName), displayMode: .inline)
+                .navigationBarItems(trailing: Button("Save", action: presenter.save))
     }
 }
 
