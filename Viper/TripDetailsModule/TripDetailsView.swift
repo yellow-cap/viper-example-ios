@@ -16,6 +16,7 @@ struct TripDetailsView: View {
                     .padding([.horizontal])
 
             MapView(pins: presenter.pins, routes: presenter.routes)
+            Text(presenter.distanceLabel)
         }
                 .navigationBarTitle(Text(presenter.tripName), displayMode: .inline)
                 .navigationBarItems(trailing: Button("Save", action: presenter.save))
